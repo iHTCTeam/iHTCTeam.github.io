@@ -1,0 +1,66 @@
+{%- assign sorted_apps = site.data.apps | sort: "order" -%}
+<footer class="site-footer" role="contentinfo">
+  <div class="container container--fluid">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <span class="name">
+          <span class="site-header__brand-mark" aria-hidden="true"></span>
+          iHTCTeam
+        </span>
+        <p class="desc">
+          <span lang="en">{{ site.data.i18n['en'].meta.site_description }}</span>
+          <span lang="zh-CN">{{ site.data.i18n['zh-CN'].meta.site_description }}</span>
+          <span lang="zh-TW">{{ site.data.i18n['zh-TW'].meta.site_description }}</span>
+        </p>
+      </div>
+
+      <div>
+        <span class="site-footer__col-title">
+          <span lang="en" class="inline">{{ site.data.i18n['en'].nav.apps }}</span>
+          <span lang="zh-CN" class="inline">{{ site.data.i18n['zh-CN'].nav.apps }}</span>
+          <span lang="zh-TW" class="inline">{{ site.data.i18n['zh-TW'].nav.apps }}</span>
+        </span>
+        <div class="site-footer__col">
+          {%- for app in sorted_apps -%}
+          <a href="{{ app.url | relative_url }}">{{ app.id }}</a>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div>
+        <span class="site-footer__col-title">
+          <span lang="en" class="inline">Resources</span>
+          <span lang="zh-CN" class="inline">资源</span>
+          <span lang="zh-TW" class="inline">資源</span>
+        </span>
+        <div class="site-footer__col">
+          <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+        </div>
+      </div>
+
+      <div>
+        <span class="site-footer__col-title">
+          <span lang="en" class="inline">{{ site.data.i18n['en'].nav.contact }}</span>
+          <span lang="zh-CN" class="inline">{{ site.data.i18n['zh-CN'].nav.contact }}</span>
+          <span lang="zh-TW" class="inline">{{ site.data.i18n['zh-TW'].nav.contact }}</span>
+        </span>
+        <div class="site-footer__col">
+          <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span class="site-footer__legal">
+        © {{ "now" | date: "%Y" }} iHTCTeam.
+        <span lang="en" class="inline">{{ site.data.i18n['en'].footer.rights }}</span>
+        <span lang="zh-CN" class="inline">{{ site.data.i18n['zh-CN'].footer.rights }}</span>
+        <span lang="zh-TW" class="inline">{{ site.data.i18n['zh-TW'].footer.rights }}</span>
+      </span>
+      <span class="site-footer__tools">
+        {% include language-switcher.html %}
+        {% include theme-switcher.html %}
+      </span>
+    </div>
+  </div>
+</footer>
