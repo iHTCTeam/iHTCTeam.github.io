@@ -36,6 +36,11 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
+# Performance optimization for GitHub Pages
+incremental: true
+liquid:
+  error_mode: strict
+
 # Default front matter for every page
 defaults:
   - scope:
